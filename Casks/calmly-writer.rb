@@ -1,24 +1,26 @@
 cask "calmly-writer" do
-  version "2.0.27"
+  version "2.0.31"
 
   if Hardware::CPU.intel?
-    sha256 "b3d74fa9fece33e306d534e14de46808990ab25a8f32135403a0c7449075a330"
+    sha256 "527634f134e1d148b313a6a20ce5c147c0990e94f77951a8273bfb010d413524"
 
     url "https://www.calmlywriter.com/releases/x64/Calmly%20Writer-#{version}.pkg"
   else
-    sha256 "5b3a9a3de0800c3c8de97e2261f69940128cff572e3aa600d024281e5fbf687c"
+    sha256 "3c04a03e12b87d8d3c35efa516cfb572e6a467a7e541549c5981bb9f0b145ab3"
 
     url "https://www.calmlywriter.com/releases/arm64/Calmly%20Writer-#{version}.pkg"
   end
 
   name "Calmly Writer"
-  desc "Simple word processor with markdown formatting and select themes"
+  desc "Word processor with markdown formatting and select themes"
   homepage "https://calmlywriter.com/"
 
   livecheck do
     url "https://calmlywriter.com/releases/x64/download.php"
     strategy :header_match
   end
+
+  depends_on macos: ">= :sierra"
 
   pkg "Calmly Writer-#{version}.pkg"
 

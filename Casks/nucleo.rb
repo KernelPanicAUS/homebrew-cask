@@ -1,6 +1,6 @@
 cask "nucleo" do
-  version "3.0.3"
-  sha256 "120c08716cdaa428aaded4316206fbda76e6e5014cb6f2ebb705cd46da4cd19f"
+  version "3.0.5"
+  sha256 "dfb8a41dc29f39ab2f7fcb66780bf3156b727cd8e39c83796059c4de3128a0ad"
 
   url "https://nucleo-app-releases.s3.amazonaws.com/mac/Nucleo_#{version}.zip",
       verified: "nucleo-app-releases.s3.amazonaws.com/"
@@ -10,8 +10,7 @@ cask "nucleo" do
 
   livecheck do
     url "https://nucleoapp.com/updates"
-    strategy :page_match
-    regex(%r{href=.*?/Nucleo_(\d+(?:\.\d+)*)\.zip}i)
+    regex(%r{href=.*?/Nucleo[._-]v?(\d+(?:\.\d+)+)\.zip}i)
   end
 
   app "Nucleo.app"

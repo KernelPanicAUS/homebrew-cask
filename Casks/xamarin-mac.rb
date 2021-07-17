@@ -1,6 +1,6 @@
 cask "xamarin-mac" do
-  version "7.10.0.5"
-  sha256 "d29cef50d1bf817d332af6bbbeb6f2d4f0cb92e642eaaf419ce26b3f82355a60"
+  version "7.14.0.24"
+  sha256 "77e532874eb85b0cba260d8f77c55b149c78d9f6d1f8758ac5fe6f427bd18fe0"
 
   url "https://dl.xamarin.com/XamarinforMac/Mac/xamarin.mac-#{version}.pkg"
   name "Xamarin Mac"
@@ -9,8 +9,7 @@ cask "xamarin-mac" do
 
   livecheck do
     url "https://software.xamarin.com/Service/Updates?v=2&pv0ab364ff-c0e9-43a8-8747-3afb02dc7731=0"
-    strategy :page_match
-    regex(%r{/xamarin\.mac-(\d+(?:\.\d+)*)\.pkg}i)
+    regex(%r{/xamarin\.mac[._-]v?(\d+(?:\.\d+)+)\.pkg}i)
   end
 
   depends_on cask: "homebrew/cask-versions/mono-mdk-for-visual-studio"

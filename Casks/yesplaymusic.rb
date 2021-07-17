@@ -1,12 +1,12 @@
 cask "yesplaymusic" do
-  version "0.3.8"
+  version "0.4.0"
 
   if Hardware::CPU.intel?
-    sha256 "3158785dbaec678c1b24347727a71867e04f765789d558e198cd8a8db733d191"
+    sha256 "0e29e0d047f4d0e40756a19da8fbbce2d0f6a8db9ae14b8f615f2a96421b60e6"
 
     url "https://github.com/qier222/YesPlayMusic/releases/download/v#{version}/YesPlayMusic-mac-#{version}.dmg"
   else
-    sha256 "c3573e998d3ad8511f2cce4a146fae9634df3e68228a706fda0b4dba1512d57a"
+    sha256 "5836a8acebb0cafd82238803b03eceee5aca8909a16ec0abcaaaca06e6fb732a"
 
     url "https://github.com/qier222/YesPlayMusic/releases/download/v#{version}/YesPlayMusic-mac-#{version}-arm64.dmg"
   end

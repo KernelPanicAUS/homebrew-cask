@@ -1,8 +1,8 @@
 cask "docker" do
-  version "3.3.3,64133"
+  version "3.5.2,66501"
 
   if Hardware::CPU.intel?
-    sha256 "f143645bfd38e1dc93a773b1eb4a7b1e12832ddce20fc49e7057937838e7bf45"
+    sha256 "841498c9b2855e357baf22af125bffa6e512c20ffa1cd30752da3bc4c3e540e4"
 
     url "https://desktop.docker.com/mac/stable/amd64/#{version.after_comma}/Docker.dmg"
 
@@ -11,7 +11,7 @@ cask "docker" do
       strategy :sparkle
     end
   else
-    sha256 "aac4218aa574d63e49cc7f087693ca6039e6b1ef916aa9dd528995f6b494d5ef"
+    sha256 "fbb0e86e73e49ef803dcb68573ccf925091a08f57bb79a43f8ecd2d85ea7f14f"
 
     url "https://desktop.docker.com/mac/stable/arm64/#{version.after_comma}/Docker.dmg"
 
@@ -28,8 +28,28 @@ cask "docker" do
   homepage "https://www.docker.com/products/docker-desktop"
 
   auto_updates true
+  conflicts_with formula: %w[
+    docker
+    docker-completion
+    docker-compose
+    docker-compose-completion
+    hyperkit
+    kubernetes-cli
+  ]
 
   app "Docker.app"
+  binary "#{appdir}/Docker.app/Contents/Resources/etc/docker.bash-completion",
+         target: "#{HOMEBREW_PREFIX}/etc/bash_completion.d/docker"
+  binary "#{appdir}/Docker.app/Contents/Resources/etc/docker-compose.bash-completion",
+         target: "#{HOMEBREW_PREFIX}/etc/bash_completion.d/docker-compose"
+  binary "#{appdir}/Docker.app/Contents/Resources/etc/docker.zsh-completion",
+         target: "#{HOMEBREW_PREFIX}/share/zsh/site-functions/_docker"
+  binary "#{appdir}/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion",
+         target: "#{HOMEBREW_PREFIX}/share/zsh/site-functions/_docker_compose"
+  binary "#{appdir}/Docker.app/Contents/Resources/etc/docker.fish-completion",
+         target: "#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d/docker.fish"
+  binary "#{appdir}/Docker.app/Contents/Resources/etc/docker-compose.fish-completion",
+         target: "#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d/docker-compose.fish"
 
   uninstall delete:    [
     "/Library/PrivilegedHelperTools/com.docker.vmnetd",

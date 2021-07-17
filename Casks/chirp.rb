@@ -1,8 +1,8 @@
 cask "chirp" do
-  version "20210520"
-  sha256 "152a25140c8d3dddd725f83f61592d5697ea587ea4061dcda54e9f091c7ec084"
+  version "20210706"
+  sha256 "8cb07fd055df10cae3675537a1d20b42abaefdf47662d5422cb85c86beff39c3"
 
-  url "https://trac.chirp.danplanet.com/chirp_daily/LATEST/chirp-unified-daily-#{version}.app.zip"
+  url "https://trac.chirp.danplanet.com/chirp_daily/daily-#{version}/chirp-unified-daily-#{version}.app.zip"
   name "CHIRP"
   desc "Tool for programming amateur radio"
   homepage "https://chirp.danplanet.com/projects/chirp/wiki/Home"
